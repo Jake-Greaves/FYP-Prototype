@@ -37,12 +37,12 @@
 /* Mux driver parameters                                                     */
 /******************************************************************************/
 
-#define MUX_PORT	ADI_GPIO_PORT0
-#define MUX_PIN 	ADI_GPIO_PIN_12
+#define MUX_PORT	ADI_GPIO_PORT2
+#define MUX_PIN 	ADI_GPIO_PIN_0
 
 typedef enum{
-							BLE_MUX = 0,
-							LibIIO_MUX
+                BLE_MUX = 0,
+                LIBIIO_MUX
 		   			}UART_DEVICE;
 
 /*
@@ -112,34 +112,37 @@ typedef enum{
 extern void Delay_ms(unsigned int mSec);
 
 //init UART
-unsigned char Uart_Init(void);
+uint8_t Uart_Init(void);
 
 //close UART
-unsigned char Uart_Close(void);
+uint8_t Uart_Close(void);
 
 //setup buffers to read and write to UART device initialized by init UART
-unsigned char Uart_ReadWrite(char* TxBuffer, char* RxBuffer, int length);
+uint8_t Uart_ReadWrite(char* TxBuffer, char* RxBuffer, int length);
 
 //setup buffers to read UART
-unsigned char Uart_Read(char *RxBuffer, int length);
+uint8_t Uart_Read(char* RxBuffer, int length);
 
 //setup buffers to write to UART
-unsigned char Uart_Write(char *string);
+uint8_t Uart_Write(char *string);
 
 //initialise SPI
-unsigned char Spi_Init(void);
+uint8_t Spi_Init(void);
 
 //close SPI
-unsigned char Spi_Close(void);
+uint8_t Spi_Close(void);
 
 //Write and read using SPI
-unsigned char Spi_ReadWrite(uint8_t const * _arrayW, uint16_t _lengthW, uint8_t* _arrayR, uint16_t _lengthR);
+uint8_t Spi_ReadWrite(uint8_t const * _arrayW, uint16_t _lengthW, uint8_t* _arrayR, uint16_t _lengthR);
 
 //write to SPI
-unsigned char Spi_Write(uint8_t const * _array, uint8_t _length);
+uint8_t Spi_Write(uint8_t const * _array, uint8_t _length);
+
+//read SPI
+uint8_t Spi_Read(uint8_t * RxArray, uint8_t RxLength);
 
 //muxes UART Rx and Tx signals to seperate devices
-unsigned char Uart_Mux(int Device);
+uint8_t Uart_Mux(int Device);
 
 //indicates if comms are active/unactive
 void transferLedOn(void);

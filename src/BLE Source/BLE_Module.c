@@ -2,6 +2,8 @@
 #include "BLE_Module.h"
 #include "Communications.h"
 #include <services/gpio/adi_gpio.h>
+#include "ADuCM3029_Timer_Interface.h"
+
 
 #define SPI_CS_NUM      ADI_SPI_CS0
 
@@ -149,42 +151,43 @@ uint8_t send_payload(uint8_t const* bin, uint32_t length)
 * Return Value : 0 = Success                                                                    
 *                1 = Failure (See eUartResult in debug mode for adi micro specific info)     
 **********************************************************************************************/
-uint32_t Ble_Spi_Boot(uint8_t const * bin, uint32_t length)
+uint8_t Ble_Spi_Boot(uint8_t const * bin, uint32_t length)
 {
   uint8_t crc;//check value
   uint8_t header_ack;//header acknowledgement
-  uint8_t payload_ack;//payload acknowledgement
+  uint8_t payload_ack = 1;//payload acknowledgement
   uint32_t attempt = 0;//attempt count
-  
+
   //Init GPIOs for RST and Indicator LED
   adi_gpio_SetHigh(BLE_LED_PORT, BLE_LED_PIN);
   adi_gpio_OutputEnable(BLE_LED_PORT, BLE_LED_PIN, true);//BLE Ready LED
+
   adi_gpio_SetHigh(BLE_RST_PORT, BLE_RST_PIN);
   adi_gpio_OutputEnable(BLE_RST_PORT, BLE_RST_PIN, true);//BLE Reset Pin
-  
+
   //Initialize SPI
   if(Spi_Init() != 0)
       return 1;
-  
+
   //Reset dialog (Active High Reset)
   adi_gpio_SetHigh(BLE_RST_PORT,BLE_RST_PIN);
-  
+
   Delay_ms(RESET_LENGTH);//ensure reset is recognised due to internal RC filter
-  
+
   //complete reset
   adi_gpio_SetLow(BLE_RST_PORT,BLE_RST_PIN);
-  
+
   //calculate Checksum
   crc = calc_crc(bin,length/4);
-  
+
   //Add wait 110ms here to improve efficiency.
   Delay_ms(110);
-  
+
   //Boot Dialog
   do{
     //send header
       header_ack = send_header(length/4,crc);
-      
+
       //if header is successful
       if(header_ack == 0)
       {
@@ -193,30 +196,34 @@ uint32_t Ble_Spi_Boot(uint8_t const * bin, uint32_t length)
       }
       attempt++;
     } while(((header_ack | payload_ack) == 1) && (attempt<MAX_ATTEMPTS));
-  
+
   //Uninitialize SPI
   if(Spi_Close() != 0)
       return 1;
-  
+
   if(attempt == MAX_ATTEMPTS)
     return 1;
-  
 
   return 0;
-  
+
 }
 
 uint8_t Ble_Uart_Write(char* TxBuffer)
 {
+  uint8_t err = 0;
+
 	//set mux to BLE module
 	Uart_Mux(BLE_MUX);
 
 	//wake BLE
-	Ble_Wake();
+	//Ble_Wake();
 	
 	//wait until BLE is awake
-	Ble_WaitUntilAvailable();
-	
+	err = Ble_WaitUntilAvailable();
+
+	if(err != 0)
+          return 1;
+
 	//call UART function
 	Uart_Write(TxBuffer);
 	
@@ -229,11 +236,11 @@ uint8_t Ble_Uart_Read(char* RxBuffer, int length)
 	Uart_Mux(BLE_MUX);
 	
 	//wake BLE
-	Ble_Wake();
+	//Ble_Wake();
 	
 	//wait until BLE is awake
 	Ble_WaitUntilAvailable();
-	
+
 	//call UART function
 	Uart_Read(RxBuffer, length);
 	
@@ -246,7 +253,7 @@ uint8_t Ble_Uart_ReadWrite(char *TxBuffer, char* RxBuffer, int length)
 	Uart_Mux(BLE_MUX);
 	
 	//wake BLE
-	Ble_Wake();
+	//Ble_Wake();
 		
 	//wait until BLE is awake
 	Ble_WaitUntilAvailable();
@@ -257,23 +264,39 @@ uint8_t Ble_Uart_ReadWrite(char *TxBuffer, char* RxBuffer, int length)
 	return 0;
 }
 
-void Ble_WaitUntilAvailable(void)
+uint8_t Ble_WaitUntilAvailable(void)
 {
 	//poll RTS to determine if BLE is awake
 	adi_gpio_GetData(BLE_RTS_PORT, BLE_RTS_PIN, &ble_rts_state);
-	
-	//wait until BLE is available
-	while(ble_rts_state)
+
+	//enable timer to check if BLE is available or to enter sleep mode (600ms timer)
+        Timer_Count(0);
+
+        //wait until BLE is available
+	while(ble_rts_state && !Ble_Sleep)
 	{
 		adi_gpio_GetData(BLE_RTS_PORT, BLE_RTS_PIN, &ble_rts_state);
 	}
+
+    if(!Ble_Sleep)
+    {
+      Close_Timer(); //if BLE is available before timeout, disable counter
+      return 0;
+    }
+
+    else
+    	return 1;
 }
 
-void Ble_Wake(void)
+uint8_t Ble_Wake(void)
 {
 	//toggle CTS pin to activate EXT wake interrupt
 	adi_gpio_SetLow(BLE_CTS_PORT, BLE_CTS_PIN);
 	adi_gpio_SetHigh(BLE_CTS_PORT, BLE_CTS_PIN);
-        Delay_ms(10);
+
+        Delay_ms(10); //ensure toggle is registered
+
 	adi_gpio_SetLow(BLE_CTS_PORT, BLE_CTS_PIN);
+
+        return 0;
 }

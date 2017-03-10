@@ -15,7 +15,11 @@ C_DEPS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 RTE/Device/ADuCM3029 \
+src/ADuCM3029\ Comms \
+src/ADuCM3029\ Pwr \
+src/BLE\ Source \
 src \
+src/LibIIO_Redux \
 system \
 system/pinmux/GeneratedSources \
 

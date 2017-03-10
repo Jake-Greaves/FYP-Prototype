@@ -12,6 +12,10 @@ RM := clean
 -include sources.mk
 -include system/pinmux/GeneratedSources/subdir.mk
 -include system/subdir.mk
+-include src/LibIIO_Redux/subdir.mk
+-include src/BLE\ Source/subdir.mk
+-include src/ADuCM3029\ Pwr/subdir.mk
+-include src/ADuCM3029\ Comms/subdir.mk
 -include src/subdir.mk
 -include RTE/Device/ADuCM3029/subdir.mk
 -include subdir.mk

@@ -1,4 +1,5 @@
-src/BLE_Test.d: ../src/BLE_Test.c ../src/BLE_Module.h \
+src/BLE_Test.d: ../src/BLE_Test.c \
+ E:\users\jake\Documents\GitHub\CrossCore\BLE_Test\src\BLE\ Source/BLE_Module.h \
  E:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.5.0/ARM/packs/AnalogDevices/ADuCM302x_DFP/1.0.3/Include/services/gpio/adi_gpio.h \
  E:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.5.0/ARM/packs/AnalogDevices/ADuCM302x_DFP/1.0.3/Include/adi_processor.h \
  E:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.5.0/ARM/packs/AnalogDevices/ADuCM302x_DFP/1.0.3/Include/ADuCM3029.h \
@@ -26,16 +27,17 @@ src/BLE_Test.d: ../src/BLE_Test.c ../src/BLE_Module.h \
  E:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.5.0/ARM/packs/AnalogDevices/ADuCM302x_DFP/1.0.3/Include/services/wdt/adi_wdt.h \
  E:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.5.0/ARM/packs/AnalogDevices/ADuCM302x_DFP/1.0.3/Include/services/wdt/adi_wdt_v1.h \
  E:\users\jake\Documents\GitHub\CrossCore\BLE_Test/RTE/Device/ADuCM3029/adi_wdt_config.h \
- ../src/Communications.h ../src/sps_device_580_FINAL.h \
- ../src/Placeholder_TempInterface.h \
+ E:\users\jake\Documents\GitHub\CrossCore\BLE_Test\src\ADuCM3029\ Comms/Communications.h \
+ E:\users\jake\Documents\GitHub\CrossCore\BLE_Test\src\BLE\ Source/Wireless_Sense_Module.h \
  E:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.5.0/ARM/packs/AnalogDevices/ADuCM302x_DFP/1.0.3/Include/services/pwr/adi_pwr.h \
  E:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.5.0/ARM/packs/AnalogDevices/ADuCM302x_DFP/1.0.3/Include/services/pwr/adi_pwr_v1.h \
  E:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.5.0/ARM/packs/AnalogDevices/ADuCM302x_DFP/1.0.3/Include/sys/platform.h \
  E:\users\jake\Documents\GitHub\CrossCore\BLE_Test\system/adi_initialize.h \
  E:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.5.0/ARM/packs/AnalogDevices/ADuCM302x_DFP/1.0.3/Include/system_ADuCM3029.h \
- ../src/LibIIO_Interface.h
+ E:\users\jake\Documents\GitHub\CrossCore\BLE_Test\src\LibIIO_Redux/LibIIO_Interface.h \
+ E:\users\jake\Documents\GitHub\CrossCore\BLE_Test\src\ADuCM3029\ Pwr/ADuCM3029_Sleep_Interface.h
 
-../src/BLE_Module.h:
+E:\users\jake\Documents\GitHub\CrossCore\BLE_Test\src\BLE\ Source/BLE_Module.h:
 
 E:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.5.0/ARM/packs/AnalogDevices/ADuCM302x_DFP/1.0.3/Include/services/gpio/adi_gpio.h:
 
@@ -91,11 +93,9 @@ E:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.5.0/ARM/packs/AnalogDevices/AD
 
 E:\users\jake\Documents\GitHub\CrossCore\BLE_Test/RTE/Device/ADuCM3029/adi_wdt_config.h:
 
-../src/Communications.h:
+E:\users\jake\Documents\GitHub\CrossCore\BLE_Test\src\ADuCM3029\ Comms/Communications.h:
 
-../src/sps_device_580_FINAL.h:
-
-../src/Placeholder_TempInterface.h:
+E:\users\jake\Documents\GitHub\CrossCore\BLE_Test\src\BLE\ Source/Wireless_Sense_Module.h:
 
 E:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.5.0/ARM/packs/AnalogDevices/ADuCM302x_DFP/1.0.3/Include/services/pwr/adi_pwr.h:
 
@@ -107,4 +107,6 @@ E:\users\jake\Documents\GitHub\CrossCore\BLE_Test\system/adi_initialize.h:
 
 E:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.5.0/ARM/packs/AnalogDevices/ADuCM302x_DFP/1.0.3/Include/system_ADuCM3029.h:
 
-../src/LibIIO_Interface.h:
+E:\users\jake\Documents\GitHub\CrossCore\BLE_Test\src\LibIIO_Redux/LibIIO_Interface.h:
+
+E:\users\jake\Documents\GitHub\CrossCore\BLE_Test\src\ADuCM3029\ Pwr/ADuCM3029_Sleep_Interface.h:

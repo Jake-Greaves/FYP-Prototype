@@ -1,3 +1,9 @@
+/*
+ * LibIIO_Utility.c - Utility functions for LibIIO_Interface.c
+ *
+ * Author: Jake Greaves
+ */
+
 #include "Communications.h"
 #include "stdio.h"
 #include "stdlib.h"
@@ -76,7 +82,6 @@ int serial_read_integer(int *val) {
 	unsigned char ret;
 	int value;
 
-
 	do {
 		ret = serial_read_line(buf, sizeof(buf));
 
@@ -104,10 +109,9 @@ int execute_command(char *cmd) {
 
 	int resp;
 
-	Uart_Mux(LibIIO_MUX);
+	Uart_Mux(LIBIIO_MUX);
 
 	serial_write_data(cmd, strlen(cmd));
-
 	serial_read_integer(&resp);
 
 	return resp;

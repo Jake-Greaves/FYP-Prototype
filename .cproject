@@ -35,6 +35,10 @@
 								</option>
 								<option id="arm.assembler.option.additionaldirectories.1658392825" name="Additional include directories (-I):" superClass="arm.assembler.option.additionaldirectories" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/system}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/BLE_Test/src/ADuCM3029 Comms}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/BLE_Test/src/BLE Source}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/BLE_Test/src/LibIIO_Redux}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/BLE_Test/src/ADuCM3029 Pwr}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${cmsis_pack_root}/ARM/CMSIS/4.5.0/CMSIS/Include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${cmsis_pack_root}/AnalogDevices/ADuCM302x_DFP/1.0.3/Include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}/RTE&quot;"/>
@@ -59,6 +63,10 @@
 								<option id="arm.toolchain.cpp.compiler.option.coreid.313445137" name="Specify the core Id (-DCORE[A|B|0-2])" superClass="arm.toolchain.cpp.compiler.option.coreid" value="0" valueType="string"/>
 								<option id="arm.base.compiler.option.include.paths.1135899260" name="Additional include directories (-I):" superClass="arm.base.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/system}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/BLE_Test/src/ADuCM3029 Comms}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/BLE_Test/src/BLE Source}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/BLE_Test/src/LibIIO_Redux}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/BLE_Test/src/ADuCM3029 Pwr}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${cmsis_pack_root}/ARM/CMSIS/4.5.0/CMSIS/Include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${cmsis_pack_root}/AnalogDevices/ADuCM302x_DFP/1.0.3/Include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}/RTE&quot;"/>
@@ -133,7 +141,7 @@
 					</folderInfo>
 					<sourceEntries>
 						<entry excluding="system|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry excluding="Placeholder_TempInterface.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="system"/>
 					</sourceEntries>
 				</configuration>
@@ -172,6 +180,10 @@
 								</option>
 								<option id="arm.assembler.option.additionaldirectories.1375500790" name="Additional include directories (-I):" superClass="arm.assembler.option.additionaldirectories" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/system}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/BLE_Test/src/ADuCM3029 Comms}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/BLE_Test/src/BLE Source}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/BLE_Test/src/LibIIO_Redux}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/BLE_Test/src/ADuCM3029 Pwr}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${cmsis_pack_root}/ARM/CMSIS/4.5.0/CMSIS/Include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${cmsis_pack_root}/AnalogDevices/ADuCM302x_DFP/1.0.3/Include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}/RTE&quot;"/>
@@ -194,6 +206,10 @@
 								<option id="arm.toolchain.cpp.compiler.option.coreid.953537363" name="Specify the core Id (-DCORE[A|B|0-2])" superClass="arm.toolchain.cpp.compiler.option.coreid" value="0" valueType="string"/>
 								<option id="arm.base.compiler.option.include.paths.1689299435" name="Additional include directories (-I):" superClass="arm.base.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/system}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/BLE_Test/src/ADuCM3029 Comms}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/BLE_Test/src/BLE Source}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/BLE_Test/src/LibIIO_Redux}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/BLE_Test/src/ADuCM3029 Pwr}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${cmsis_pack_root}/ARM/CMSIS/4.5.0/CMSIS/Include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${cmsis_pack_root}/AnalogDevices/ADuCM302x_DFP/1.0.3/Include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}/RTE&quot;"/>
@@ -269,7 +285,7 @@
 					</folderInfo>
 					<sourceEntries>
 						<entry excluding="system|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry excluding="Placeholder_TempInterface.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="system"/>
 					</sourceEntries>
 				</configuration>

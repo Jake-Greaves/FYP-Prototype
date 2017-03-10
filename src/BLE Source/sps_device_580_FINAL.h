@@ -1,3 +1,10 @@
+/*
+ * sps_device_580_FINAL.h - Auto generated code from the hex output from Keil
+ * Used to program BLE on boot
+ *
+ * Author: Jake Greaves
+ */
+
 #define IMAGE_SIZE 18964     // Image size in bytes 
 
 #pragma data_alignment=4 

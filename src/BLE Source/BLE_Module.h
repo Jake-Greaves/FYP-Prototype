@@ -23,15 +23,19 @@
 #define BLE_RST_PORT    ADI_GPIO_PORT0
 #define BLE_RST_PIN     ADI_GPIO_PIN_12
 
-
 #define RESET_LENGTH     10 //ms
+
+/******************************************************************************/
+/* Shared Global flags                                                        */
+/******************************************************************************/
+extern  bool_t Ble_Sleep;
 
 /******************************************************************************/
 /* Function Prototypes                                                       */
 /******************************************************************************/
 
 //boot BLE module using SPI interface
-uint32_t Ble_Spi_Boot(uint8_t const * bin, uint32_t length);
+uint8_t Ble_Spi_Boot(uint8_t const * bin, uint32_t length);
 
 //calculate check value
 uint8_t calc_crc(uint8_t const * bin, uint32_t length);
@@ -46,10 +50,10 @@ uint8_t Ble_Uart_Read(char* RxBuffer, int length);
 uint8_t Ble_Uart_ReadWrite(char *TxBuffer, char* RxBuffer, int length);
 
 //wait until BLE is awake
-void Ble_WaitUntilAvailable(void);
+uint8_t Ble_WaitUntilAvailable(void);
 
 //wake ble by toggling cts pin
-void Ble_Wake(void);
+uint8_t Ble_Wake(void);
 
 
 #endif /* __DIALOG_SPI_M350_H */
